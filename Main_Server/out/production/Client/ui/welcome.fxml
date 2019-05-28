@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.WelcomeController">
+    <children>
+        <ImageView fitHeight="500.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../resource/img/background/WelcomeScreen.jpg" />
+            </image>
+        </ImageView>
+        <AnchorPane layoutX="66.0" layoutY="131.0" prefHeight="178.0" prefWidth="302.0" style="-fx-background-color: #242424; -fx-opacity: 0.6; -fx-background-radius: 30;" />
+        <ImageView fitHeight="167.0" fitWidth="342.0" layoutX="70.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../resource/img/iconpack/musicHunter.png" />
+            </image>
+        </ImageView>
+        <Button fx:id="signupButton" alignment="CENTER" layoutX="135.0" layoutY="288.0" mnemonicParsing="false" onAction="#setSignupButton" prefHeight="41.0" prefWidth="162.0" styleClass="loginButton" stylesheets="@css/welcome.css" text="     S i g n  U P" textFill="#e8e8e8">
+            <font>
+                <Font name="Ebrima" size="15.0" />
+            </font>
+        </Button>
+        <ImageView fx:id="signupButtonGraphics" fitHeight="32.0" fitWidth="34.0" layoutX="141.0" layoutY="293.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../resource/img/iconpack/signup.png" />
+            </image>
+        </ImageView>
+        <AnchorPane fx:id="loginDashboard" layoutX="441.0" layoutY="16.0" prefHeight="461.0" prefWidth="400.0">
+            <children>
+                <AnchorPane prefHeight="461.0" prefWidth="400.0" style="-fx-background-color: #242424; -fx-opacity: 0.6; -fx-background-radius: 30;" />
+                <ImageView fitHeight="55.0" fitWidth="58.0" layoutX="95.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../resource/img/iconpack/headphone-icon-png-1.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="143.0" layoutY="59.0" prefHeight="32.0" prefWidth="189.0" text="L O G   I N" textFill="#e2e2e2">
+                    <font>
+                        <Font name="Ebrima Bold" size="23.0" />
+                    </font>
+                </Label>
+                <Button fx:id="userLogin" layoutX="28.0" layoutY="300.0" mnemonicParsing="false" onAction="#userLoginBtn" prefHeight="62.0" prefWidth="342.0" styleClass="loginButton" stylesheets="@css/welcome.css" text="L o g i n" textFill="#e8e8e8">
+                    <font>
+                        <Font name="Ebrima" size="23.0" />
+                    </font>
+                </Button>
+                <TextField fx:id="loginUser" alignment="CENTER" layoutX="25.0" layoutY="120.0" prefHeight="62.0" prefWidth="341.0" promptText="U s e r I D" styleClass="userIDField" stylesheets="@css/welcome.css">
+                    <font>
+                        <Font name="Ebrima" size="20.0" />
+                    </font>
+                </TextField>
+                <ImageView fitHeight="41.0" fitWidth="47.0" layoutX="35.0" layoutY="131.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../resource/img/iconpack/user-3.png" />
+                    </image>
+                </ImageView>
+                <PasswordField fx:id="loginPassword" alignment="CENTER" layoutX="25.0" layoutY="200.0" prefHeight="62.0" prefWidth="342.0" promptText="P a s s w o r d" styleClass="userIDField" stylesheets="@css/welcome.css">
+                    <font>
+                        <Font name="Ebrima" size="20.0" />
+                    </font>
+                </PasswordField>
+                <ImageView fitHeight="41.0" fitWidth="47.0" layoutX="35.0" layoutY="211.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../resource/img/iconpack/padlock.png" />
+                    </image>
+                </ImageView>
+                <ImageView fx:id="loginerror" fitHeight="42.0" fitWidth="55.0" layoutX="350.0" layoutY="308.0" opacity="0.8" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.5;">
+                    <image>
+                        <Image url="@../resource/img/iconpack/alert-warning-wrong-error-exclamation-icon%20copy.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </AnchorPane>
+        <Button fx:id="exitButton" layoutX="-7.0" mnemonicParsing="false" onAction="#setExitButton" prefHeight="55.0" prefWidth="66.0" style="-fx-background-color: transparent;">
+            <graphic>
+                <ImageView fitHeight="37.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../resource/img/iconpack/exit.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <AnchorPane fx:id="createAccountDashboard" layoutX="368.0" layoutY="16.0" prefHeight="461.0" prefWidth="400.0">
+            <children>
+                <AnchorPane prefHeight="461.0" prefWidth="400.0" style="-fx-background-color: #242424; -fx-opacity: 0.6; -fx-background-radius: 30;">
+                    <children>
+                        <TextField fx:id="firstName" alignment="CENTER" layoutX="52.0" layoutY="118.0" prefHeight="42.0" prefWidth="301.0" promptText="F i r s t  N a m e" styleClass="userIDField" stylesheets="@css/welcome.css">
+                            <font>
+                                <Font name="Ebrima" size="20.0" />
+                            </font>
+                        </TextField>
+                        <ImageView fitHeight="32.0" fitWidth="41.0" layoutX="59.0" layoutY="125.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../resource/img/iconpack/pencil.png" />
+                            </image>
+                        </ImageView>
+                        <TextField fx:id="lastName" alignment="CENTER" layoutX="26.0" layoutY="175.0" prefHeight="42.0" prefWidth="301.0" promptText="L a s t  N a m e" styleClass="userIDField" stylesheets="@css/welcome.css">
+                            <font>
+                                <Font name="Ebrima" size="20.0" />
+                            </font>
+                        </TextField>
+                        <ImageView fitHeight="32.0" fitWidth="41.0" layoutX="33.0" layoutY="182.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../resource/img/iconpack/pencil.png" />
+                            </image>
+                        </ImageView>
+                        <TextField fx:id="userID" alignment="CENTER" layoutX="52.0" layoutY="237.0" prefHeight="42.0" prefWidth="301.0" promptText="U s e r I D" styleClass="userIDField" stylesheets="@css/welcome.css">
+                            <font>
+                                <Font name="Ebrima" size="20.0" />
+                            </font>
+                        </TextField>
+                        <ImageView fitHeight="32.0" fitWidth="41.0" layoutX="59.0" layoutY="244.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../resource/img/iconpack/user-3.png" />
+                            </image>
+                        </ImageView>
+                        <PasswordField fx:id="password" alignment="CENTER" layoutX="27.0" layoutY="297.0" prefHeight="46.0" prefWidth="302.0" promptText="P a s s w o r d" styleClass="userIDField" stylesheets="@css/welcome.css">
+                            <font>
+                                <Font name="Ebrima" size="20.0" />
+                            </font>
+                        </PasswordField>
+                        <ImageView fitHeight="32.0" fitWidth="41.0" layoutX="35.0" layoutY="304.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../resource/img/iconpack/padlock.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </AnchorPane>
+                <Button fx:id="createAccount" layoutX="40.0" layoutY="380.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="302.0" styleClass="loginButton" stylesheets="@css/welcome.css" text="C r e a t e  A c c o u n t" textFill="#e8e8e8">
+                    <font>
+                        <Font name="Ebrima" size="17.0" />
+                    </font>
+                </Button>
+                <Button fx:id="dpChooser" layoutX="137.0" layoutY="10.0" mnemonicParsing="false" opacity="0.8" prefWidth="126.0" style="-fx-background-color: transparent;">
+                    <graphic>
+                        <Circle fx:id="dpHolder" centerX="200.0" centerY="50.0" fill="WHITE" opacity="0.8" radius="44.0" stroke="WHITE" strokeType="INSIDE" />
+                    </graphic>
+                </Button>
+                <ImageView fx:id="signuperror" fitHeight="41.0" fitWidth="49.0" layoutX="330.0" layoutY="381.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../resource/img/iconpack/alert-warning-wrong-error-exclamation-icon%20copy.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </AnchorPane>
+        <Button fx:id="loginButton" alignment="CENTER" layoutX="135.0" layoutY="288.0" mnemonicParsing="false" onAction="#setLoginButton" prefHeight="41.0" prefWidth="162.0" styleClass="loginButton" stylesheets="@css/welcome.css" text="     L o g  I n" textFill="#e8e8e8">
+            <font>
+                <Font name="Ebrima" size="15.0" />
+            </font>
+        </Button>
+        <ImageView fx:id="loginButtonGraphics" fitHeight="32.0" fitWidth="34.0" layoutX="145.0" layoutY="293.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../resource/img/iconpack/login.png" />
+            </image>
+        </ImageView>
+        <AnchorPane fx:id="testPos" layoutX="368.0" layoutY="134.0" prefHeight="88.0" prefWidth="75.0" />
+        <!--
+       <Button layoutX="841.0" layoutY="28.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="55.0" style="-fx-background-color: tranparent;">
+          <graphic />
+       </Button>
+       -->
+    </children>
+</AnchorPane>

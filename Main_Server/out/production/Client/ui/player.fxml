@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1326.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.PlayerController">
+   <children>
+      <ImageView fitHeight="500.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resource/img/background/WelcomeScreen.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="logoutPane" layoutX="438.0" layoutY="9.0" prefHeight="55.0" prefWidth="768.0">
+         <children>
+            <Button fx:id="usernameShower" alignment="CENTER" contentDisplay="RIGHT" layoutX="40.0" layoutY="-1.0" mnemonicParsing="false" opacity="0.8" prefHeight="47.0" prefWidth="402.0" styleClass="loginButton" stylesheets="@css/welcome.css" textFill="#d7d2d2">
+               <font>
+                  <Font name="Ebrima" size="19.0" />
+               </font>
+            </Button>
+            <Button layoutX="33.0" layoutY="-1.0" mnemonicParsing="false" onAction="#logout" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fx:id="logoutShower" fitHeight="40.0" fitWidth="50.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resource/img/iconpack/logout.png" />
+                     </image>
+                     <effect>
+                        <ColorAdjust brightness="1.0" contrast="-1.0" saturation="1.0" />
+                     </effect>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+      <Button layoutX="826.0" layoutY="7.0" mnemonicParsing="false" onAction="#logoutPaneOpener" style="-fx-background-color: transparent;">
+         <graphic>
+            <Circle fx:id="userdpShower" fill="WHITE" opacity="0.8" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+         </graphic>
+      </Button>
+      <Button fx:id="exitButton" layoutX="-7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setExitButton" prefHeight="55.0" prefWidth="66.0" style="-fx-background-color: transparent;" stylesheets="@css/welcome.css">
+         <graphic>
+            <ImageView fitHeight="37.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resource/img/iconpack/exit.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="playlistSidePanelButton" layoutX="52.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onContextMenuRequested="#setPlaylistSidePanelButton" onMouseClicked="#setPlaylistSidePanelButton" prefHeight="55.0" prefWidth="66.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="40.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resource/img/iconpack/playlist.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="settingButton" layoutX="111.0" layoutY="-2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setsettingButton" prefHeight="58.0" prefWidth="66.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="43.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resource/img/iconpack/setting.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <AnchorPane layoutX="55.0" layoutY="67.0" prefHeight="416.0" prefWidth="384.0">
+         <children>
+            <Button fx:id="playPauseButton" layoutX="132.0" layoutY="314.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setPlayPauseButton" prefHeight="74.0" prefWidth="78.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fx:id="playPauseImage" fitHeight="69.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resource/img/iconpack/icons8-pause-button-64.png" />
+                     </image>
+                     <effect>
+                        <DropShadow>
+                           <input>
+                              <Reflection fraction="0.6" topOffset="-9.0" topOpacity="0.28" />
+                           </input>
+                        </DropShadow>
+                     </effect>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Slider fx:id="timeSlider" layoutX="23.0" layoutY="286.0" prefHeight="27.0" prefWidth="308.0" style="-fx-blend-mode: OVERLAY;">
+               <effect>
+                  <Lighting diffuseConstant="0.0" specularConstant="0.0" specularExponent="0.0" surfaceScale="0.0">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant color="#cf3232" />
+                     </light>
+                  </Lighting>
+               </effect>
+            </Slider>
+            <Button fx:id="nextButton" layoutX="219.0" layoutY="322.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setNextButton" prefHeight="58.0" prefWidth="66.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="49.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                     <image>
+                        <Image url="@../resource/img/iconpack/icons8-rewind-64.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <Button fx:id="previousButton" layoutX="56.0" layoutY="326.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setPreviousButton" prefHeight="58.0" prefWidth="66.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="49.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resource/img/iconpack/icons8-rewind-64.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <Label fx:id="songName" layoutX="14.0" layoutY="7.0" prefHeight="58.0" prefWidth="327.0" text="Unknown" textFill="#f5f2f2">
+               <font>
+                  <Font name="Ebrima Bold" size="15.0" />
+               </font>
+            </Label>
+            <Line endX="125.79998779296875" endY="256.0" layoutX="252.0" layoutY="147.0" startX="125.79998779296875" startY="-139.1999969482422" />
+            <ImageView fx:id="shareButton" fitHeight="27.0" fitWidth="23.0" layoutX="343.0" layoutY="26.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resource/img/iconpack/share.png" />
+               </image>
+               <effect>
+                  <ColorAdjust brightness="-0.56" contrast="-0.78" />
+               </effect>
+            </ImageView>
+            <HBox fx:id="visualizerHolder" layoutX="13.0" layoutY="54.0" prefHeight="222.0" prefWidth="327.0" />
+            <Label fx:id="endTime" layoutX="299.0" layoutY="314.0" text="00:00" textFill="#e2e2e2">
+               <font>
+                  <Font name="Cambria Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="startTime" layoutX="23.0" layoutY="314.0" text="00:00" textFill="#f2f2f2">
+               <font>
+                  <Font name="Cambria Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <MediaView fx:id="mediaview" fitHeight="20.0" fitWidth="20.0" layoutX="10.0" layoutY="80.0" />
+      <AnchorPane fx:id="playlistSidePanel" layoutX="915.0" layoutY="14.0" prefHeight="473.0" prefWidth="402.0" style="-fx-background-color: #232323; -fx-opacity: 0.8;">
+         <children>
+            <ImageView fitHeight="137.0" fitWidth="250.0" layoutX="74.0" layoutY="-18.0" opacity="0.83" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resource/img/iconpack/playlisttext.png" />
+               </image>
+               <effect>
+                  <ColorAdjust brightness="-0.15" contrast="0.06" saturation="-1.0" />
+               </effect>
+            </ImageView>
+            <Button fx:id="viewPlaylist" layoutX="30.0" layoutY="80.0" mnemonicParsing="false" onAction="#setviewPlaylist" prefHeight="47.0" prefWidth="46.0" styleClass="loginButton" stylesheets="@css/welcome.css">
+               <graphic>
+                  <ImageView fx:id="userPlaylist" fitHeight="72.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resource/img/iconpack/playlist.png" />
+                     </image>
+                     <effect>
+                        <ColorAdjust brightness="0.76">
+                           <input>
+                              <DropShadow height="0.0" radius="7.0" width="30.0" />
+                           </input>
+                        </ColorAdjust>
+                     </effect>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="viewFavlist" layoutX="165.0" layoutY="80.0" mnemonicParsing="false" onAction="#setviewFavlist" prefHeight="47.0" prefWidth="46.0" styleClass="loginButton" stylesheets="@css/welcome.css">
+               <graphic>
+                  <ImageView fx:id="favouritelist" fitHeight="48.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resource/img/iconpack/heart.png" />
+                     </image>
+                     <effect>
+                        <ColorAdjust brightness="0.76">
+                           <input>
+                              <DropShadow height="0.0" radius="7.0" width="30.0" />
+                           </input>
+                        </ColorAdjust>
+                     </effect>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="viewSharelist" layoutX="294.0" layoutY="80.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="46.0" styleClass="loginButton" stylesheets="@css/welcome.css">
+               <graphic>
+                  <ImageView fx:id="sharedlist" fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resource/img/iconpack/share.png" />
+                     </image>
+                     <effect>
+                        <ColorAdjust brightness="0.76">
+                           <input>
+                              <DropShadow height="15.0" radius="10.75" width="30.0" />
+                           </input>
+                        </ColorAdjust>
+                     </effect>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Line endX="392.4000244140625" endY="145.59999084472656" startX="9.20001220703125" startY="145.59999084472656" />
+            <ListView fx:id="playlistHolder" layoutX="11.0" layoutY="154.0" prefHeight="311.0" prefWidth="384.0" style="-fx-background-color: transparent;" />
+            <Button fx:id="importPlaylistButton" layoutX="367.0" layoutY="2.0" mnemonicParsing="false" onAction="#setImportPlaylistButton" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resource/img/iconpack/import.png" />
+                     </image>
+                     <effect>
+                        <ColorAdjust brightness="0.75" contrast="-0.97" />
+                     </effect>
+                  </ImageView>
+               </graphic>
+               <effect>
+                  <DropShadow spread="0.77" />
+               </effect>
+            </Button>
+            <ListView fx:id="playlistHolder" layoutX="9.0" layoutY="154.0" prefHeight="311.0" prefWidth="384.0" stylesheets="@css/welcome.css">
+               <styleClass>
+                  <String fx:value="list-cell" />
+                  <String fx:value="list-view" />
+               </styleClass>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </ListView>
+            <!--
+           <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="355.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+              <image>
+                 <Image url="@../../../../../New%20folder/Plugin/Icon%20Pack/181501-interface/181501-interface/png/download.png" />
+              </image>
+              <effect>
+                 <ColorAdjust brightness="1.0" contrast="1.0" hue="1.0" saturation="1.0" />
+              </effect>
+           </ImageView>
+           -->
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="infoHolder" layoutX="448.0" layoutY="73.0" prefHeight="396.0" prefWidth="451.0">
+         <children>
+            <AnchorPane fx:id="songInfoHolder" layoutX="28.0" prefHeight="396.0" prefWidth="402.0" style="-fx-background-color: black; -fx-opacity: 0.3; -fx-background-radius: 50;" />
+            <AnchorPane layoutX="138.0" layoutY="259.0" prefHeight="58.0" prefWidth="178.0">
+               <children>
+                  <ImageView fx:id="rating1" fitHeight="23.0" fitWidth="23.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resource/img/iconpack/heart.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="rating2" fitHeight="23.0" fitWidth="23.0" layoutX="30.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resource/img/iconpack/heart.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="rating3" fitHeight="23.0" fitWidth="23.0" layoutX="60.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resource/img/iconpack/heart.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="rating4" fitHeight="23.0" fitWidth="23.0" layoutX="90.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resource/img/iconpack/heart.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="rating5" fitHeight="23.0" fitWidth="23.0" layoutX="120.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resource/img/iconpack/heart.png" />
+                     </image>
+                  </ImageView>
+                  <Slider fx:id="ratingSlider" layoutX="-23.0" layoutY="3.0" opacity="0.0" prefHeight="27.0" prefWidth="168.0" style="-fx-blend-mode: OVERLAY;">
+                     <effect>
+                        <Lighting diffuseConstant="0.0" specularConstant="0.0" specularExponent="0.0" surfaceScale="0.0">
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant color="#cf3232" />
+                           </light>
+                        </Lighting>
+                     </effect>
+                  </Slider>
+               </children>
+            </AnchorPane>
+            <ImageView fitHeight="114.0" fitWidth="168.0" layoutX="50.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true" x="200.0" y="200.0">
+               <image>
+                  <Image url="@../resource/img/iconpack/musicHunter.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="150.0" layoutY="190.0" text="Album:" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="album" layoutX="199.0" layoutY="190.0" text="Unknown" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <Circle fx:id="albumart" fill="WHITE" layoutX="226.0" layoutY="84.0" radius="37.0" stroke="WHITE" strokeType="INSIDE" />
+            <Label fx:id="title" layoutX="92.0" layoutY="131.0" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="150.0" layoutY="211.0" text="Artist:" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="deleteButton" layoutX="370.0" layoutY="120.0" mnemonicParsing="false" onAction="#setDeleteButton" styleClass="btn" stylesheets="@css/welcome.css">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: DARKEN;">
+                     <image>
+                        <Image url="@../resource/img/iconpack/delete.png" />
+                     </image>
+                     <effect>
+                        <ColorAdjust brightness="0.51" contrast="0.66" />
+                     </effect>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label fx:id="artist" layoutX="199.0" layoutY="211.0" text="Unknown" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="151.0" layoutY="231.0" text="Year:" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="year" layoutX="200.0" layoutY="231.0" text="Unknown" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Slider fx:id="volumeSlider" layoutX="188.0" layoutY="14.0" prefHeight="27.0" prefWidth="168.0" style="-fx-blend-mode: OVERLAY;">
+         <effect>
+            <Lighting diffuseConstant="0.0" specularConstant="0.0" specularExponent="0.0" surfaceScale="0.0">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant color="#cf3232" />
+               </light>
+            </Lighting>
+         </effect>
+      </Slider>
+      <Button fx:id="volumeButton" layoutX="352.0" layoutY="7.0" mnemonicParsing="false" onAction="#volumeButton" prefHeight="40.0" prefWidth="23.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fx:id="volumeButtonImage" fitHeight="26.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resource/img/iconpack/volume.png" />
+               </image>
+               <effect>
+                  <ColorAdjust brightness="-0.3" contrast="-0.82" hue="0.21" saturation="-1.0" />
+               </effect>
+            </ImageView>
+         </graphic>
+      </Button>
+      <AnchorPane fx:id="userInfoHolder" layoutX="10.0" layoutY="-173.0" prefHeight="416.0" prefWidth="882.0">
+         <children>
+            <AnchorPane layoutX="5.0" layoutY="-5.0" prefHeight="423.0" prefWidth="872.0" style="-fx-background-color: black; -fx-opacity: 0.7; -fx-background-radius: 20;" />
+            <Button fx:id="editInfo" layoutX="355.0" layoutY="371.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="44.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="37.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resource/img/iconpack/pencil.png" />
+                     </image>
+                     <effect>
+                        <ColorAdjust brightness="0.72" />
+                     </effect>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Circle fx:id="userDP" fill="WHITE" layoutX="207.0" layoutY="95.0" opacity="0.8" radius="81.0" stroke="WHITE" strokeType="INSIDE" />
+            <Label fx:id="userName" alignment="CENTER" contentDisplay="CENTER" layoutX="46.0" layoutY="178.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="34.0" prefWidth="327.0" textFill="#dfdfdf">
+               <font>
+                  <Font name="Arial" size="29.0" />
+               </font>
+            </Label>
+            <Label fx:id="userID" layoutX="169.0" layoutY="269.0" text="BHN_Nirab" textFill="#d2d2d2">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="89.0" layoutY="293.0" text="Password: " textFill="#d2d2d2">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="87.0" layoutY="269.0" text="Username:" textFill="#d2d2d2">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="userPass" layoutX="170.0" layoutY="294.0" text="1234" textFill="#d2d2d2">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="inputpass" layoutX="166.0" layoutY="289.0" prefHeight="26.0" prefWidth="154.0" styleClass="userIDField" stylesheets="@css/welcome.css" />
+            <AnchorPane layoutX="500.0" layoutY="109.0" prefHeight="287.0" prefWidth="342.0" />
+            <Button fx:id="editDP" layoutX="234.0" layoutY="142.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="44.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resource/img/iconpack/pencil.png" />
+                     </image>
+                     <effect>
+                        <ColorAdjust brightness="0.74" />
+                     </effect>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="saveInfo" layoutX="38.0" layoutY="366.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="44.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="33.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resource/img/iconpack/Save_black-512.png" />
+                     </image>
+                     <effect>
+                        <ColorAdjust brightness="0.72" />
+                     </effect>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="editPass" layoutX="289.0" layoutY="286.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#getPass" prefHeight="34.0" prefWidth="32.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resource/img/iconpack/pencil.png" />
+                     </image>
+                     <effect>
+                        <ColorAdjust brightness="0.13" />
+                     </effect>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="editInfo1" layoutX="500.0" layoutY="40.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setcurrFrndBtn" prefHeight="40.0" prefWidth="44.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="37.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resource/img/iconpack/group.png" />
+                     </image>
+                     <effect>
+                        <ColorAdjust brightness="0.72" />
+                     </effect>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="editInfo11" layoutX="643.0" layoutY="40.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setSugBtn" prefHeight="40.0" prefWidth="44.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="37.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resource/img/iconpack/searchWhite.png" />
+                     </image>
+                     <effect>
+                        <ColorAdjust brightness="-0.21" />
+                     </effect>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Line endX="829.4000244140625" endY="89.19999694824219" startX="498.1999816894531" startY="89.19999694824219" />
+            <Button fx:id="editInfo111" layoutX="780.0" layoutY="40.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#frndreq" prefHeight="40.0" prefWidth="44.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="37.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resource/img/iconpack/group.png" />
+                     </image>
+                     <effect>
+                        <ColorAdjust brightness="0.72" />
+                     </effect>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Line endX="411.4000244140625" endY="377.5999755859375" layoutX="10.0" layoutY="10.0" startX="411.4000244140625" startY="22.400009155273438" />
+            <Label fx:id="addCounter" layoutX="816.0" layoutY="39.0" textFill="#afafaf">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="addFrndfromSug" layoutX="803.0" layoutY="380.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setAddBtn" prefHeight="31.0" prefWidth="34.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resource/img/iconpack/user-1.png" />
+                     </image>
+                     <effect>
+                        <ColorAdjust brightness="0.72" />
+                     </effect>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="playBtnfromFrndlist" layoutX="511.0" layoutY="380.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setplayBtnfromFrndlist" prefHeight="31.0" prefWidth="34.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resource/img/iconpack/icons8-circled-play-64.png" />
+                     </image>
+                     <effect>
+                        <ColorAdjust brightness="0.72" />
+                     </effect>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <ListView fx:id="friendViewer" layoutX="506.0" layoutY="101.0" prefHeight="278.0" prefWidth="332.0" stylesheets="@css/welcome.css">
+               <styleClass>
+                  <String fx:value="list-cell" />
+                  <String fx:value="list-view" />
+               </styleClass>
+            </ListView>
+            <Button fx:id="addFrndfromReq" layoutX="803.0" layoutY="380.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addFrndBtn" prefHeight="31.0" prefWidth="34.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resource/img/iconpack/user-1.png" />
+                     </image>
+                     <effect>
+                        <ColorAdjust brightness="0.72" />
+                     </effect>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+      <MediaView fx:id="mvHolder" fitHeight="200.0" fitWidth="200.0" layoutX="-70.0" layoutY="195.0" scaleX="0.2" scaleY="0.2" />
+      <AnchorPane fx:id="searchBarHolder" layoutX="2.0" layoutY="-236.0" prefHeight="500.0" prefWidth="900.0" visible="false">
+         <children>
+            <AnchorPane layoutX="18.0" layoutY="18.0" prefHeight="462.0" prefWidth="862.0" style="-fx-background-color: black; -fx-opacity: 0.7; -fx-background-radius: 20;" />
+            <Button layoutX="700.0" layoutY="42.0" mnemonicParsing="false" onAction="#playfromSearch" prefHeight="34.0" prefWidth="69.0" style="-fx-background-color: transparent;" textFill="#e2e2e2">
+               <font>
+                  <Font name="Ebrima" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="36.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resource/img/iconpack/icons8-circled-play-64.png" />
+                     </image>
+                     <effect>
+                        <ColorAdjust brightness="0.88" />
+                     </effect>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <TextField fx:id="search" alignment="CENTER" layoutX="215.0" layoutY="41.0" prefHeight="57.0" prefWidth="463.0" promptText="SEARCH" styleClass="userIDField" stylesheets="@css/welcome.css">
+               <font>
+                  <Font name="Ebrima" size="20.0" />
+               </font>
+            </TextField>
+            <ImageView fitHeight="48.0" fitWidth="51.0" layoutX="220.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: DARKEN; -fx-opacity: 0.8;">
+               <image>
+                  <Image url="@../resource/img/iconpack/download.png" />
+               </image>
+            </ImageView>
+            <ListView fx:id="searchResult" layoutX="125.0" layoutY="112.0" prefHeight="354.0" prefWidth="638.0" stylesheets="@css/welcome.css">
+               <styleClass>
+                  <String fx:value="list-cell" />
+                  <String fx:value="list-view" />
+               </styleClass>
+            </ListView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

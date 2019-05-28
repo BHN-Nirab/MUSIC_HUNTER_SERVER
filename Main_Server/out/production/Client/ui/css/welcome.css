@@ -1,0 +1,56 @@
+.userIDField {
+	
+	-fx-border-radius: 30;
+	-fx-background-radius:30;
+	-fx-border-color: #e7e3e3;
+	-fx-background-color: #e7e3e3;
+	-fx-opacity: 0.5;
+	
+}
+
+.userIDField:hover {
+	-fx-border-radius: 30;
+	-fx-background-radius:30;
+	-fx-border-color: #e7e3e3;
+	-fx-background-color: #e7e3e3;
+	-fx-opacity: 0.9;
+}
+
+.loginButton {
+	
+	 -fx-background-color: #242424;
+	 -fx-border-radius: 30;
+	-fx-background-radius:30;
+	
+}
+
+.loginButton:hover {
+	
+	 -fx-background-color: #393939;
+	 -fx-border-radius: 30;
+	-fx-background-radius:30;
+}
+
+.list-cell {
+    -fx-background-color: transparent;
+    -fx-alignment: center;
+
+}
+
+.list-view {
+    -fx-background-color: transparent;
+    -fx-alignment: center;
+}
+
+.btn{
+    -fx-background-color: transparent;
+
+}
+
+.btn:hover {
+
+     -fx-background-color: transparent;
+     -fx-opacity: 0.3;
+
+}
+
